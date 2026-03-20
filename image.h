@@ -10,9 +10,9 @@ class Image
 
         public:
                 Image(const char* filename);
-                int getHeight();
-                int getWidth();
-                int getChannel();
+                int getHeight() const;
+                int getWidth() const;
+                int getChannel() const;
                 void Print(); // to be deleted later, only for debugging
                 ~Image();
 };
