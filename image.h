@@ -20,6 +20,7 @@ class Image
                 Image(const char* filename);
                 Image();
                 Image(unsigned char*, unsigned char*, unsigned char*, int, int);
+                Image(int w, int h, int c);
                 int getHeight() const;
                 int getWidth() const;
                 int getChannel() const;
