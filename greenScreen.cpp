@@ -1,4 +1,6 @@
 #include "greenScreen.h"
+#define STB_IMAGE_RESIZE_IMPLEMENTATION
+#include "stb_image_resize2.h"
 
 bool greenScreenImage::checkAspectRatio(const Image &img1, const Image &img2)
 {
