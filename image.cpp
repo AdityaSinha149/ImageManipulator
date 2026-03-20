@@ -64,7 +64,8 @@ Image& Image::operator=(const Image& img)
         rstream = img.rstream;
         gstream = img.gstream;
         bstream = img.bstream;
-        name = img.name
+        name = img.name;
+        return *this;
 }
 
 int Image::getHeight() const
