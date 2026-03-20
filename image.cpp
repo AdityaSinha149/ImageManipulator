@@ -34,6 +34,11 @@ int Image::getChannel() const
         return channel;
 }
 
+unsigned char* Image::getStream() const
+{
+        return rgbstream;
+}
+
 Image::~Image()
 {
         free(rgbstream);

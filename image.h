@@ -13,6 +13,7 @@ class Image
                 int getHeight() const;
                 int getWidth() const;
                 int getChannel() const;
+                unsigned char* getStream() const;
                 void Print(); // to be deleted later, only for debugging
                 ~Image();
 };
