@@ -1,11 +1,14 @@
 #include "greenScreen.h"
 
-greenScreenImage::checkSizes(Image &img1, Image &ing2)
+int greenScreenImage::checkAspectRatio(Image &img1, Image &ing2)
 {
 }
-greenScreenImage::resizeBigToSmall(Image &big, Image &small)
+int greenScreenImage::checkSizes(Image &img1, Image &ing2)
 {
 }
-greenScreenImage::applyGreenScreen(Image &screen, Image &img)
+void greenScreenImage::resizeBigToSmall(Image &big, Image &small)
+{
+}
+Image greenScreenImage::applyGreenScreen(Image &screen, Image &img)
 {
 }

@@ -1,8 +1,9 @@
-#include "Image.h"
+#include "image.h"
 
 namespace greenScreenImage
 {
-    Image checkSizes(Image &img1, Image &ing2);
-    Image resizeBigToSmall(Image &big, Image &small);
+    int checkAspectRatio(Image &img1, Image &ing2);
+    int checkSizes(Image &img1, Image &ing2);
+    void resizeBigToSmall(Image &big, Image &small);
     Image applyGreenScreen(Image &screen, Image &img);
 }
