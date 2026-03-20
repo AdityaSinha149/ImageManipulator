@@ -1,0 +1,24 @@
+Image Class
+        - uint height;
+        - uint width;
+        - uchar* rgbstream;
+        - int channel
+        - constructor
+                - rgbstream = loadd(file, h, w, channel , 0)
+
+GreenScreen.h
+
+        - Image 1
+        - Image 2
+        - Checking
+        - Resizing
+        - Modification
+
+GreenScreen.cpp
+
+
+        
+
+
+
+
