@@ -10,5 +10,6 @@ class Image
 
         public:
                 Image(const char* filename);
-                void Print();
+                void Print(); // to be deleted later, only for debugging
+                ~Image();
 };
