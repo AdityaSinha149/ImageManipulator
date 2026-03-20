@@ -4,11 +4,11 @@ bool greenScreenImage::checkAspectRatio(const Image &img1, const Image &img2)
 {
     if (img1.getHeight() * img2.getWidth() == img2.getHeight() * img1.getWidth())
     {
-        return 1;
+        return true;
     }
     else
     {
-        return 0;
+        return false;
     }
 }
 
