@@ -2,13 +2,20 @@
 
 int greenScreenImage::checkAspectRatio(Image &img1, Image &ing2)
 {
+
 }
+
 int greenScreenImage::checkSizes(Image &img1, Image &ing2)
 {
+
 }
+
 void greenScreenImage::resizeBigToSmall(Image &big, Image &small)
 {
+
 }
-Image greenScreenImage::applyGreenScreen(Image &screen, Image &img)
+
+void greenScreenImage::applyGreenScreen(Image &screen, Image &img)
 {
+
 }
