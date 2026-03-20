@@ -66,9 +66,9 @@ void greenScreenImage::applyGreenScreen(Image &screen, Image &img, std::string n
     unsigned char* imgBStream = img.getBStream();
 
     int size = screen.getWidth()*screen.getHeight();
-    std::unique_ptr<unsigned char[]> resRStream ( new unsigned char[size] );
-    std::unique_ptr<unsigned char[]> resGStream ( new unsigned char[size] );
-    std::unique_ptr<unsigned char[]> resBStream ( new unsigned char[size] );
+    unsigned char* resRStream = new unsigned char[size];
+    unsigned char* resGStream = new unsigned char[size];
+    unsigned char* resBStream = new unsigned char[size];
 
     for (size_t i = 0; i < size; i++)
     {
@@ -91,5 +91,5 @@ void greenScreenImage::applyGreenScreen(Image &screen, Image &img, std::string n
 
     name += '1';
 
-    res.load(name);
+    res.Load(name);
 }
