@@ -74,6 +74,7 @@ int Image::getChannel() const
         return channel;
 }
 
+<<<<<<< HEAD
 unsigned char* Image::getRStream()
 {
         return rstream;
@@ -87,6 +88,9 @@ unsigned char* Image::getGStream()
 unsigned char* Image::getBStream()
 {
         return bstream;
+unsigned char* Image::getStream() const
+{
+        return rgbstream;
 }
 
 Image::~Image()

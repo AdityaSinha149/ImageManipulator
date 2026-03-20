@@ -23,6 +23,7 @@ class Image
                 int getHeight() const;
                 int getWidth() const;
                 int getChannel() const;
+                unsigned char* getStream() const;
                 unsigned char* getRStream();
                 unsigned char* getGStream();
                 unsigned char* getBStream();
