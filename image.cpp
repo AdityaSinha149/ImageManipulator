@@ -19,6 +19,21 @@ void Image::Print()
         return;
 }
 
+int Image::getHeight()
+{
+        return height;
+}
+
+int Image::getWidth()
+{
+        return width;
+}
+
+int Image::getChannel()
+{
+        return channel;
+}
+
 Image::~Image()
 {
         free(rgbstream);
