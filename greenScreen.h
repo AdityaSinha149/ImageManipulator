@@ -5,5 +5,5 @@ namespace greenScreenImage
     int checkAspectRatio(Image &img1, Image &ing2);
     int checkSizes(Image &img1, Image &ing2);
     void resizeBigToSmall(Image &big, Image &small);
-    Image applyGreenScreen(Image &screen, Image &img);
+    void applyGreenScreen(Image &screen, Image &img);
 }

@@ -18,3 +18,9 @@ void Image::Print()
         }
         return;
 }
+
+Image::~Image()
+{
+        free(rgbstream);
+}
+
