@@ -19,17 +19,17 @@ void Image::Print()
         return;
 }
 
-int Image::getHeight()
+int Image::getHeight() const
 {
         return height;
 }
 
-int Image::getWidth()
+int Image::getWidth() const
 {
         return width;
 }
 
-int Image::getChannel()
+int Image::getChannel() const
 {
         return channel;
 }
