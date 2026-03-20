@@ -1,5 +1,5 @@
 #define STB_IMAGE_IMPLEMENTATION
-#include "stb_image.c"
+#include "stb_image.h"
 #include "image.h"
 
 Image::Image(char const* filename)
