@@ -1,5 +1,6 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
+#define STB_IMAGE_IMAGE_WRITE_IMPLEMENTATION
 #include "stb_image_write.h"
 #include "image.h"
 
@@ -27,8 +28,8 @@ Image::Image(unsigned char* r, unsigned char* g, unsigned char* b, int w, int h)
         for(int i = 0; i < h * w * 3; i += 3)
         {
                 rgbstream[i] = r[i/3];
-                rgbstream[i+1] = b[i/3];
-                rgbstream[i+2] = g[i/3];
+                rgbstream[i+1] = g[i/3];
+                rgbstream[i+2] = b[i/3];
         }
 
 }
@@ -71,6 +72,21 @@ int Image::getWidth() const
 int Image::getChannel() const
 {
         return channel;
+}
+
+unsigned char* Image::getRStream()
+{
+        return rstream;
+}
+
+unsigned char* Image::getGStream()
+{
+        return gstream;
+}
+
+unsigned char* Image::getBStream()
+{
+        return bstream;
 }
 
 Image::~Image()
