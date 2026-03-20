@@ -2,8 +2,8 @@
 
 namespace greenScreenImage
 {
-    int checkAspectRatio(Image &img1, Image &ing2);
-    int checkSizes(Image &img1, Image &ing2);
+    bool checkAspectRatio(const Image &img1, const Image &img2);
+    int checkSizes(const Image &img1, const Image &img2);
     void resizeBigToSmall(Image &big, Image &small);
     void applyGreenScreen(Image &screen, Image &img);
 }
