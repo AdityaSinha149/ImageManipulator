@@ -110,7 +110,7 @@ Image::~Image()
         delete[] rgbstream;
 }
 
-Image::Load(const std::string& filename)
+void Image::Load(const std::string& filename)
 {
         stbi_write_jpg(filename.c_str(), width, height, channel, rgbstream, 50);
 }
