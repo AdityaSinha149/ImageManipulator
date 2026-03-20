@@ -10,8 +10,16 @@ Image::Image(const char* filename)
         name = filename;
 }
 
-Image::Image(int w, int h, int c) : width{w}, height{h}, channel{c}, rgbstream{nullptr}, rstream{nullptr}, gstream{nullptr}, bstream{nullptr}
+Image::Image(int w, int h, int c) 
 {
+
+        width = w;
+        height = h;
+        channel = c;
+        rgbstream = nullptr;
+        rstream = nullptr;
+        gstream = nullptr;
+        bstream = nullptr;
 
 }
 
