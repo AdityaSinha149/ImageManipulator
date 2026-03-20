@@ -4543,31 +4543,7 @@ int stbi_info(char const *filename, int *x, int *y, int *comp)
 {
     FILE *f = fopen(filename, "rb");
     int result;
-      1.00   interface to zlib that skips zlib header
-      0.99   correct handling of alpha in palette
-      0.98   TGA loader by lonesock; dynamically add loaders (untested)
-      0.97   jpeg errors on too large a file; also catch another malloc failure
-      0.96   fix detection of invalid v value - particleman@mollyrocket forum
-      0.95   during header scan, seek to markers in case of padding
-      0.94   STBI_NO_STDIO to disable stdio usage; rename all #defines the same
-      0.93   handle jpegtran output; verbose errors
-      0.92   read 4,8,16,24,32-bit BMP files of several formats
-      0.91   output 24-bit Windows 3.0 BMP files
-      0.90   fix a few more warnings; bump version number to approach 1.0
-      0.61   bugfixes due to Marc LeBlanc, Christopher Lloyd
-      0.60   fix compiling as c++
-      0.59   fix warnings: merge Dave Moore's -Wall fixes
-      0.58   fix bug: zlib uncompressed mode len/nlen was wrong endian
-      0.57   fix bug: jpg last huffman symbol before marker was >9 bits but less than 16 available
-      0.56   fix bug: zlib uncompressed mode len vs. nlen
-      0.55   fix bug: restart_interval not initialized to 0
-      0.54   allow NULL for 'int *comp'
-      0.53   fix bug in png 3->4; speedup png decoding
-      0.52   png handles req_comp=3,4 directly; minor cleanup; jpeg comments
-      0.51   obey req_comp requests, 1-component jpegs return as 1-component,
-             on 'test' only check type, not whether we support this variant
-      0.50   first released version
-*/  if (!f) return e("can't fopen", "Unable to open file");
+    if (!f) return e("can't fopen", "Unable to open file");
     result = stbi_info_from_file(f, x, y, comp);
     fclose(f);
     return result;
@@ -4675,4 +4651,28 @@ int stbi_info_from_callbacks(stbi_io_callbacks const *c, void *user, int *x, int
       1.02   support for (subset of) HDR files, float interface for preferred access to them
       1.01   fix bug: possible bug in handling right-side up bmps... not sure
              fix bug: the stbi_bmp_load() and stbi_tga_load() functions didn't work at all
-  
+      1.00   interface to zlib that skips zlib header
+      0.99   correct handling of alpha in palette
+      0.98   TGA loader by lonesock; dynamically add loaders (untested)
+      0.97   jpeg errors on too large a file; also catch another malloc failure
+      0.96   fix detection of invalid v value - particleman@mollyrocket forum
+      0.95   during header scan, seek to markers in case of padding
+      0.94   STBI_NO_STDIO to disable stdio usage; rename all #defines the same
+      0.93   handle jpegtran output; verbose errors
+      0.92   read 4,8,16,24,32-bit BMP files of several formats
+      0.91   output 24-bit Windows 3.0 BMP files
+      0.90   fix a few more warnings; bump version number to approach 1.0
+      0.61   bugfixes due to Marc LeBlanc, Christopher Lloyd
+      0.60   fix compiling as c++
+      0.59   fix warnings: merge Dave Moore's -Wall fixes
+      0.58   fix bug: zlib uncompressed mode len/nlen was wrong endian
+      0.57   fix bug: jpg last huffman symbol before marker was >9 bits but less than 16 available
+      0.56   fix bug: zlib uncompressed mode len vs. nlen
+      0.55   fix bug: restart_interval not initialized to 0
+      0.54   allow NULL for 'int *comp'
+      0.53   fix bug in png 3->4; speedup png decoding
+      0.52   png handles req_comp=3,4 directly; minor cleanup; jpeg comments
+      0.51   obey req_comp requests, 1-component jpegs return as 1-component,
+             on 'test' only check type, not whether we support this variant
+      0.50   first released version
+*/
