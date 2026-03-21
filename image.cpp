@@ -7,10 +7,15 @@
 Image::Image(const std::string& filename)
 {
         std::cout<<"Filename image constructor started\n";
-        const unsigned char* temp = stbi_load(filename.data(), &width, &height, &channel, 0);
-        for(int i = 0; i < sizeof(temp)/sizeof(unsigned char); i++) rgbstream.push_back(temp[i]);
+        unsigned char* temp = stbi_load(filename.data(), &width, &height, &channel, 0);
+
+        int size = width * height * channel;
+        rgbstream.assign(temp, temp + size);
         name = filename;
+
+
         std::cout<<"Filename image constructor ended\n";
+        stbi_image_free(temp);
 }
 
 Image::Image(int w, int h, int c) 
@@ -26,6 +31,7 @@ Image::Image(const std::vector<unsigned char> rgb, int w, int h)
         rgbstream = rgb;
         width = w;
         height = h;
+        channel = 3;
 }
 
 void Image::Print()
@@ -41,15 +47,6 @@ void Image::Print()
 
 }
 
-Image& Image::operator=(const Image& img)
-{
-        height = img.height;
-        width = img.width;
-        channel = img.channel;
-        rgbstream = img.rgbstream;
-        name = img.name;
-        return *this;
-}
 
 int Image::getHeight() const
 {
@@ -67,13 +64,18 @@ int Image::getChannel() const
 }
 
 
-std::vector<unsigned char> Image::getRGBStream() const
+const std::vector<unsigned char>& Image::getRGBStream() const
+{
+        return rgbstream;
+}
+
+std::vector<unsigned char>& Image::getRGBStream()
 {
         return rgbstream;
 }
 
 
-void Image::Load(const std::string& filename)
+void Image::Load(const std::string& filename) const
 {
         stbi_write_jpg(filename.c_str(), width, height, channel, rgbstream.data(), 50);
 }

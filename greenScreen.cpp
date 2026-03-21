@@ -62,27 +62,35 @@ void greenScreenImage::applyGreenScreen(Image &screen, Image &img, std::string n
     std::vector<unsigned char> screenStream = screen.getRGBStream();
     std::vector<unsigned char> imgStream = img.getRGBStream();
 
+        std::cout<<screenStream.size()<<std::endl;
+        std::cout<<imgStream.size()<<std::endl;
 
     int size = screen.getWidth()*screen.getHeight();
-    std::vector<unsigned char> res;
+    std::vector<unsigned char> res (size * 3);
 
     std::cout<<"for\n";
-    for (size_t i = 0; i < size; i++)
+   
+    for (size_t i = 0; i < size * 3; i += 3)
     {
-        int idx = i*screen.getChannel() + 1;
-        std::cout<<"once";
-        if(screenStream[idx] > 240)
-            res.insert(res.end(), imgStream.begin() + idx - 1, imgStream.begin() + idx + 2);
+
+        if(screenStream[i + 1] > 240)
+        {
+                res[i] = imgStream[i];
+                res[i+1] = imgStream[i+1];
+                res[i+2] = imgStream[i+2];
+        }
         else
-            res.insert(res.end(), screenStream.begin() + idx - 1, screenStream.begin() + idx + 2);
+        {
+                res[i] = screenStream[i];
+                res[i+1] = screenStream[i+1];
+                res[i+2] = screenStream[i+2];
+        }
 
     }
 
-    std::cout<<"for end/n";
+        std::cout<<"for end/n";
     
     Image resImage{res, screen.getWidth(), screen.getHeight()};
-
-    name += '1';
 
     resImage.Load(name);
 }

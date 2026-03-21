@@ -23,8 +23,8 @@ class Image
                 int getHeight() const;
                 int getWidth() const;
                 int getChannel() const;
-                std::vector<unsigned char> getRGBStream() const;
+                const std::vector<unsigned char>& getRGBStream() const;
+                std::vector<unsigned char>& getRGBStream();
                 void Print(); // to be deleted later, only for debugging
-                void Load(const std::string& filename);
-                Image& operator=(const Image&);
+                void Load(const std::string& filename) const;
 };
