@@ -4,7 +4,7 @@ Image Class
         - uchar* rgbstream;
         - int channel
         - constructor
-                - rgbstream = loadd(file, h, w, channel , 0)
+                - rgbstream = load(file, h, w, channel , 0)
 
 GreenScreen.h
 

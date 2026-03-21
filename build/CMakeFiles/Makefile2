@@ -85,12 +85,12 @@ clean: CMakeFiles/PixelBatch.dir/clean
 CMakeFiles/PixelBatch.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/PixelBatch.dir/build.make CMakeFiles/PixelBatch.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/PixelBatch.dir/build.make CMakeFiles/PixelBatch.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/sinhaa/Desktop/PixelManipulator/build/CMakeFiles --progress-num=1,2,3,4 "Built target PixelBatch"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/sinhaa/Desktop/PixelManipulator/build/CMakeFiles --progress-num=1,2,3,4,5 "Built target PixelBatch"
 .PHONY : CMakeFiles/PixelBatch.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/PixelBatch.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/sinhaa/Desktop/PixelManipulator/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/sinhaa/Desktop/PixelManipulator/build/CMakeFiles 5
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/PixelBatch.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/sinhaa/Desktop/PixelManipulator/build/CMakeFiles 0
 .PHONY : CMakeFiles/PixelBatch.dir/rule
@@ -102,7 +102,7 @@ PixelBatch: CMakeFiles/PixelBatch.dir/rule
 # codegen rule for target.
 CMakeFiles/PixelBatch.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/PixelBatch.dir/build.make CMakeFiles/PixelBatch.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/sinhaa/Desktop/PixelManipulator/build/CMakeFiles --progress-num=1,2,3,4 "Finished codegen for target PixelBatch"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/sinhaa/Desktop/PixelManipulator/build/CMakeFiles --progress-num=1,2,3,4,5 "Finished codegen for target PixelBatch"
 .PHONY : CMakeFiles/PixelBatch.dir/codegen
 
 # clean rule for target.

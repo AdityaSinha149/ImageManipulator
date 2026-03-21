@@ -136,29 +136,29 @@ PixelBatch/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/PixelBatch.dir/build.make CMakeFiles/PixelBatch.dir/build
 .PHONY : PixelBatch/fast
 
-greenScreen.o: greenScreen.cpp.o
+greenScreen.o: greenScreen.cu.o
 .PHONY : greenScreen.o
 
 # target to build an object file
-greenScreen.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PixelBatch.dir/build.make CMakeFiles/PixelBatch.dir/greenScreen.cpp.o
-.PHONY : greenScreen.cpp.o
+greenScreen.cu.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PixelBatch.dir/build.make CMakeFiles/PixelBatch.dir/greenScreen.cu.o
+.PHONY : greenScreen.cu.o
 
-greenScreen.i: greenScreen.cpp.i
+greenScreen.i: greenScreen.cu.i
 .PHONY : greenScreen.i
 
 # target to preprocess a source file
-greenScreen.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PixelBatch.dir/build.make CMakeFiles/PixelBatch.dir/greenScreen.cpp.i
-.PHONY : greenScreen.cpp.i
+greenScreen.cu.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PixelBatch.dir/build.make CMakeFiles/PixelBatch.dir/greenScreen.cu.i
+.PHONY : greenScreen.cu.i
 
-greenScreen.s: greenScreen.cpp.s
+greenScreen.s: greenScreen.cu.s
 .PHONY : greenScreen.s
 
 # target to generate assembly for a file
-greenScreen.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PixelBatch.dir/build.make CMakeFiles/PixelBatch.dir/greenScreen.cpp.s
-.PHONY : greenScreen.cpp.s
+greenScreen.cu.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PixelBatch.dir/build.make CMakeFiles/PixelBatch.dir/greenScreen.cu.s
+.PHONY : greenScreen.cu.s
 
 greenScreenProcess.o: greenScreenProcess.cpp.o
 .PHONY : greenScreenProcess.o
@@ -208,6 +208,30 @@ image.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/PixelBatch.dir/build.make CMakeFiles/PixelBatch.dir/image.cpp.s
 .PHONY : image.cpp.s
 
+stb_image_resize2.o: stb_image_resize2.cpp.o
+.PHONY : stb_image_resize2.o
+
+# target to build an object file
+stb_image_resize2.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PixelBatch.dir/build.make CMakeFiles/PixelBatch.dir/stb_image_resize2.cpp.o
+.PHONY : stb_image_resize2.cpp.o
+
+stb_image_resize2.i: stb_image_resize2.cpp.i
+.PHONY : stb_image_resize2.i
+
+# target to preprocess a source file
+stb_image_resize2.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PixelBatch.dir/build.make CMakeFiles/PixelBatch.dir/stb_image_resize2.cpp.i
+.PHONY : stb_image_resize2.cpp.i
+
+stb_image_resize2.s: stb_image_resize2.cpp.s
+.PHONY : stb_image_resize2.s
+
+# target to generate assembly for a file
+stb_image_resize2.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PixelBatch.dir/build.make CMakeFiles/PixelBatch.dir/stb_image_resize2.cpp.s
+.PHONY : stb_image_resize2.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -227,6 +251,9 @@ help:
 	@echo "... image.o"
 	@echo "... image.i"
 	@echo "... image.s"
+	@echo "... stb_image_resize2.o"
+	@echo "... stb_image_resize2.i"
+	@echo "... stb_image_resize2.s"
 .PHONY : help
 
 
