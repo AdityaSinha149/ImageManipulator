@@ -6,8 +6,11 @@
 
 Image::Image(const std::string& filename)
 {
-        rgbstream.emplace_back(stbi_load(filename.data(), &width, &height, &channel, 0));
+        std::cout<<"Filename image constructor started\n";
+        const unsigned char* temp = stbi_load(filename.data(), &width, &height, &channel, 0);
+        for(int i = 0; i < sizeof(temp)/sizeof(unsigned char); i++) rgbstream.push_back(temp[i]);
         name = filename;
+        std::cout<<"Filename image constructor ended\n";
 }
 
 Image::Image(int w, int h, int c) 
