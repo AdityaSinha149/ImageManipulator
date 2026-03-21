@@ -8,7 +8,6 @@
 
 Image::Image(const std::string& filename)
 {
-        std::cout<<"Filename image constructor started\n";
         width = 0;
         height = 0;
         channel = 0;
@@ -52,7 +51,6 @@ Image::Image(const std::string& filename)
         name = filename;
 
 
-        std::cout<<"Filename image constructor ended\n";
         stbi_image_free(temp);
 }
 

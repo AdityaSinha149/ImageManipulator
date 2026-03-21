@@ -52,7 +52,6 @@ void greenScreenImage::resizeBigToSmall(Image &big, const Image &small)
 void greenScreenImage::applyGreenScreen(Image &screen, Image &img, std::string name)
 {
 
-    std::cout<<"start\n";
     int check = checkSizes(screen, img);
     if(check == -1) return;
     else if(check == 1) resizeBigToSmall(screen, img);
@@ -65,19 +64,14 @@ void greenScreenImage::applyGreenScreen(Image &screen, Image &img, std::string n
         return;
     }
     
-    std::cout<<"converted\n";
     std::vector<unsigned char> screenStream = screen.getRGBStream();
     std::vector<unsigned char> imgStream = img.getRGBStream();
-
-        std::cout<<screenStream.size()<<std::endl;
-        std::cout<<imgStream.size()<<std::endl;
 
     int size = screen.getWidth()*screen.getHeight();
     std::vector<unsigned char> res (size * 3);
 
-    std::cout<<"for\n";
    
-    for (size_t i = 0; i < size * 3; i += 3)
+    for (size_t i = 0; i < static_cast<size_t>( size * 3 ); i += 3)
     {
         int r = static_cast<int>(screenStream[i]);
         int g = static_cast<int>(screenStream[i + 1]);
@@ -99,9 +93,9 @@ void greenScreenImage::applyGreenScreen(Image &screen, Image &img, std::string n
 
     }
 
-        std::cout<<"for end/n";
     
     Image resImage{res, screen.getWidth(), screen.getHeight()};
 
     resImage.Save(name);
+        std::cout<<"Executed Successfully, new image in: "<<name<<std::endl;
 }
