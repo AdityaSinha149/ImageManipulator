@@ -124,48 +124,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named PixelManipulator
+# Target rules for targets named PixelBatch
 
 # Build rule for target.
-PixelManipulator: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 PixelManipulator
-.PHONY : PixelManipulator
+PixelBatch: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 PixelBatch
+.PHONY : PixelBatch
 
 # fast build rule for target.
-PixelManipulator/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PixelManipulator.dir/build.make CMakeFiles/PixelManipulator.dir/build
-.PHONY : PixelManipulator/fast
-
-driver.o: driver.cpp.o
-.PHONY : driver.o
-
-# target to build an object file
-driver.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PixelManipulator.dir/build.make CMakeFiles/PixelManipulator.dir/driver.cpp.o
-.PHONY : driver.cpp.o
-
-driver.i: driver.cpp.i
-.PHONY : driver.i
-
-# target to preprocess a source file
-driver.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PixelManipulator.dir/build.make CMakeFiles/PixelManipulator.dir/driver.cpp.i
-.PHONY : driver.cpp.i
-
-driver.s: driver.cpp.s
-.PHONY : driver.s
-
-# target to generate assembly for a file
-driver.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PixelManipulator.dir/build.make CMakeFiles/PixelManipulator.dir/driver.cpp.s
-.PHONY : driver.cpp.s
+PixelBatch/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PixelBatch.dir/build.make CMakeFiles/PixelBatch.dir/build
+.PHONY : PixelBatch/fast
 
 greenScreen.o: greenScreen.cpp.o
 .PHONY : greenScreen.o
 
 # target to build an object file
 greenScreen.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PixelManipulator.dir/build.make CMakeFiles/PixelManipulator.dir/greenScreen.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PixelBatch.dir/build.make CMakeFiles/PixelBatch.dir/greenScreen.cpp.o
 .PHONY : greenScreen.cpp.o
 
 greenScreen.i: greenScreen.cpp.i
@@ -173,7 +149,7 @@ greenScreen.i: greenScreen.cpp.i
 
 # target to preprocess a source file
 greenScreen.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PixelManipulator.dir/build.make CMakeFiles/PixelManipulator.dir/greenScreen.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PixelBatch.dir/build.make CMakeFiles/PixelBatch.dir/greenScreen.cpp.i
 .PHONY : greenScreen.cpp.i
 
 greenScreen.s: greenScreen.cpp.s
@@ -181,15 +157,39 @@ greenScreen.s: greenScreen.cpp.s
 
 # target to generate assembly for a file
 greenScreen.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PixelManipulator.dir/build.make CMakeFiles/PixelManipulator.dir/greenScreen.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PixelBatch.dir/build.make CMakeFiles/PixelBatch.dir/greenScreen.cpp.s
 .PHONY : greenScreen.cpp.s
+
+greenScreenProcess.o: greenScreenProcess.cpp.o
+.PHONY : greenScreenProcess.o
+
+# target to build an object file
+greenScreenProcess.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PixelBatch.dir/build.make CMakeFiles/PixelBatch.dir/greenScreenProcess.cpp.o
+.PHONY : greenScreenProcess.cpp.o
+
+greenScreenProcess.i: greenScreenProcess.cpp.i
+.PHONY : greenScreenProcess.i
+
+# target to preprocess a source file
+greenScreenProcess.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PixelBatch.dir/build.make CMakeFiles/PixelBatch.dir/greenScreenProcess.cpp.i
+.PHONY : greenScreenProcess.cpp.i
+
+greenScreenProcess.s: greenScreenProcess.cpp.s
+.PHONY : greenScreenProcess.s
+
+# target to generate assembly for a file
+greenScreenProcess.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PixelBatch.dir/build.make CMakeFiles/PixelBatch.dir/greenScreenProcess.cpp.s
+.PHONY : greenScreenProcess.cpp.s
 
 image.o: image.cpp.o
 .PHONY : image.o
 
 # target to build an object file
 image.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PixelManipulator.dir/build.make CMakeFiles/PixelManipulator.dir/image.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PixelBatch.dir/build.make CMakeFiles/PixelBatch.dir/image.cpp.o
 .PHONY : image.cpp.o
 
 image.i: image.cpp.i
@@ -197,7 +197,7 @@ image.i: image.cpp.i
 
 # target to preprocess a source file
 image.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PixelManipulator.dir/build.make CMakeFiles/PixelManipulator.dir/image.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PixelBatch.dir/build.make CMakeFiles/PixelBatch.dir/image.cpp.i
 .PHONY : image.cpp.i
 
 image.s: image.cpp.s
@@ -205,7 +205,7 @@ image.s: image.cpp.s
 
 # target to generate assembly for a file
 image.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/PixelManipulator.dir/build.make CMakeFiles/PixelManipulator.dir/image.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/PixelBatch.dir/build.make CMakeFiles/PixelBatch.dir/image.cpp.s
 .PHONY : image.cpp.s
 
 # Help Target
@@ -217,13 +217,13 @@ help:
 	@echo "... codegen"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... PixelManipulator"
-	@echo "... driver.o"
-	@echo "... driver.i"
-	@echo "... driver.s"
+	@echo "... PixelBatch"
 	@echo "... greenScreen.o"
 	@echo "... greenScreen.i"
 	@echo "... greenScreen.s"
+	@echo "... greenScreenProcess.o"
+	@echo "... greenScreenProcess.i"
+	@echo "... greenScreenProcess.s"
 	@echo "... image.o"
 	@echo "... image.i"
 	@echo "... image.s"

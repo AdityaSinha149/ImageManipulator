@@ -57,13 +57,6 @@ void greenScreenImage::applyGreenScreen(Image &screen, Image &img, std::string n
     if(check == -1) return;
     else if(check == 1) resizeBigToSmall(screen, img);
     else if(check == 2) resizeBigToSmall(img, screen);
-
-    // Only handle 3-channel RGB; bail if either image has a different stride.
-    if (screen.getChannel() != 3 || img.getChannel() != 3)
-    {
-        std::cerr << "Unsupported channel count; expected 3-channel RGB." << std::endl;
-        return;
-    }
     
     std::cout<<"converted\n";
     std::vector<unsigned char> screenStream = screen.getRGBStream();

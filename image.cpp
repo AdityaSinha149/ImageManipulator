@@ -13,7 +13,7 @@ Image::Image(const std::string& filename)
         height = 0;
         channel = 0;
 
-        unsigned char* temp = stbi_load(filename.c_str(), &width, &height, &channel, 0);
+        unsigned char* temp = stbi_load(filename.c_str(), &width, &height, &channel, 3);
 
         if (temp == nullptr)
         {
@@ -35,6 +35,7 @@ Image::Image(const std::string& filename)
                 throw std::overflow_error("Image too large (width * height overflow): " + filename);
         }
 
+        // channel is forced to 3 above; still guard the math.
         size_t size = pixelCount * static_cast<size_t>(channel);
         if (channel != 0 && size / static_cast<size_t>(channel) != pixelCount)
         {
