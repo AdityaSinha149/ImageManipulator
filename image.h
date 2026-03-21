@@ -16,15 +16,11 @@ class Image
 
         public:
                 Image(const std::string& filename);
-                Image();
                 Image(const std::vector<unsigned char>, int, int);
-                Image(std::vector<unsigned char>, std::vector<unsigned char>, std::vector<unsigned char>, int, int);
                 Image(int w, int h, int c);
                 int getHeight() const;
                 int getWidth() const;
                 int getChannel() const;
-                const std::vector<unsigned char>& getRGBStream() const;
                 std::vector<unsigned char>& getRGBStream();
-                void Print(); // to be deleted later, only for debugging
-                void Load(const std::string& filename) const;
+                void Save(const std::string& filename) const;
 };

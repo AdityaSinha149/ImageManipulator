@@ -1,0 +1,3 @@
+/home/sinhaa/Desktop/PixelManipulator/build/CMakeFiles/PixelManipulator.dir
+/home/sinhaa/Desktop/PixelManipulator/build/CMakeFiles/edit_cache.dir
+/home/sinhaa/Desktop/PixelManipulator/build/CMakeFiles/rebuild_cache.dir
