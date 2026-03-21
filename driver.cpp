@@ -6,8 +6,8 @@
 int main()
 {
 
-        Image img1 {"test.jpg"};
-        Image img2 {"test_2.jpg"};
+        Image img1 {"big_1.jpg"};
+        Image img2 {"big_2.jpg"};
 
-        greenScreenImage::applyGreenScreen(img1, img2, "pls_work.jpg");
+        greenScreenImage::applyGreenScreen(img1, img2, "big_3.jpg");
 }

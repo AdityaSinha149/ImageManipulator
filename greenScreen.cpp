@@ -5,14 +5,19 @@
 
 bool greenScreenImage::checkAspectRatio(const Image &img1, const Image &img2)
 {
+
+        std::cout<<"Working in checkaspectRatio\n";
     if (img1.getHeight() * img2.getWidth() == img2.getHeight() * img1.getWidth())
     {
+            std::cout<<"Sent True\n";
         return true;
     }
     else
     {
+            std::cout<<"Sent False\n";
         return false;
     }
+        
 }
 
 int greenScreenImage::checkSizes(const Image &img1, const Image &img2)
@@ -20,20 +25,24 @@ int greenScreenImage::checkSizes(const Image &img1, const Image &img2)
 
         if(checkAspectRatio(img1, img2) == false)
         {
+                std::cout<<"Check sizes sent -1\n";
                 return -1;
         }
         else
         {
                 if(img1.getHeight() == img2.getHeight())
                 {
+                        std::cout<<"Check sizes sent 0\n";
                         return 0; // same size
                 }
 
                 if(img1.getHeight() > img2.getHeight())
                 {
+                        std::cout<<"Check sizes sent 1\n";
                         return 1; // img1 is bigger
                 }
 
+                std::cout<<"Check sizes sent 2\n";
                 return 2; // img2 is bigger
         }
 
