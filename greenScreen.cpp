@@ -39,12 +39,12 @@ int greenScreenImage::checkSizes(const Image &img1, const Image &img2)
 
 }
 
-void greenScreenImage::resizeBigToSmall(Image &big, Image &small)
+void greenScreenImage::resizeBigToSmall(Image &big, const Image &small)
 {
     Image tmp{small.getWidth(), small.getHeight(), big.getChannel()};
     stbir_pixel_layout layout = (big.getChannel() == 4) ? STBIR_RGBA : STBIR_RGB;
-    stbir_resize_uint8_linear(big.getStream(), big.getWidth(), big.getHeight(), big.getWidth()*big.getChannel(),
-                                tmp.getStream(), small.getWidth(), small.getHeight(), small.getWidth()*small.getChannel(),
+    stbir_resize_uint8_linear(big.getStream().data(), big.getWidth(), big.getHeight(), big.getWidth()*big.getChannel(),
+                                tmp.getStream().data(), small.getWidth(), small.getHeight(), small.getWidth()*small.getChannel(),
                                 layout);
     big = tmp;
 }
@@ -56,40 +56,27 @@ void greenScreenImage::applyGreenScreen(Image &screen, Image &img, std::string n
     if(check == -1) return;
     else if(check == 1) resizeBigToSmall(screen, img);
     else if(check == 2) resizeBigToSmall(img, screen);
+    
+    std::vector<unsigned char> screenStream = screen.getStream();
+    std::vector<unsigned char> imgStream = img.getStream();
 
-    unsigned char* screenRStream = screen.getRStream();
-    unsigned char* screenGStream = screen.getGStream();
-    unsigned char* screenBStream = screen.getBStream();
-
-    unsigned char* imgRStream = img.getRStream();
-    unsigned char* imgGStream = img.getGStream();
-    unsigned char* imgBStream = img.getBStream();
 
     int size = screen.getWidth()*screen.getHeight();
-    unsigned char* resRStream = new unsigned char[size];
-    unsigned char* resGStream = new unsigned char[size];
-    unsigned char* resBStream = new unsigned char[size];
+    std::vector<unsigned char> res;
 
     for (size_t i = 0; i < size; i++)
     {
-        if(screenGStream[i] > 240)
-        {
-            resRStream[i] = imgRStream[i];
-            resBStream[i] = imgBStream[i];
-            resGStream[i] = imgGStream[i];
-        }
-        
+        int idx = i*screen.getChannel();
+        if(screenStream[idx] > 240)
+            res.insert(res.end(), imgStream.begin() + idx - 1, imgStream.begin() + idx + 2);
         else
-        {
-            resRStream[i] = screenRStream[i];
-            resBStream[i] = screenBStream[i];
-            resGStream[i] = screenGStream[i];
-        }
+            res.insert(res.end(), screenStream.begin() + idx - 1, screenStream.begin() + idx + 2);
+
     }
     
-    Image res{resRStream, resGStream, resBStream, screen.getWidth(), screen.getHeight()};
+    Image resImage{res, screen.getWidth(), screen.getHeight()};
 
     name += '1';
 
-    res.Load(name);
+    resImage.Load(name);
 }

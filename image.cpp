@@ -17,6 +17,8 @@ Image::Image(int w, int h, int c)
         channel = c;
 }
 
+//make a constructor which takes just an rgb stream and width and height ig
+
 void Image::Print()
 {
 
@@ -58,21 +60,21 @@ int Image::getChannel() const
         return channel;
 }
 
-std::vector<char> Image::getRStream()
+std::vector<unsigned char> Image::getRStream()
 {
         return rstream;
 }
 
-std::vector<char> Image::getGStream()
+std::vector<unsigned char> Image::getGStream()
 {
         return gstream;
 }
 
-std::vector<char> Image::getBStream()
+std::vector<unsigned char> Image::getBStream()
 {
         return bstream;
 }
-std::vector<char> Image::getStream() const
+std::vector<unsigned char> Image::getStream() const
 {
         return rgbstream;
 }
