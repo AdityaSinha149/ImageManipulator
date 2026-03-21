@@ -6,7 +6,7 @@
 
 Image::Image(const std::string& filename)
 {
-        rgbstream.emplace_back(stbi_load(filename.c_str(), &width, &height, &channel, 0));
+        rgbstream.emplace_back(stbi_load(filename.data(), &width, &height, &channel, 0));
         name = filename;
 }
 
@@ -16,8 +16,6 @@ Image::Image(int w, int h, int c)
         height = h;
         channel = c;
 }
-
-//make a constructor which takes just an rgb stream and width and height 
 
 Image::Image(const std::vector<unsigned char> rgb, int w, int h)
 {
