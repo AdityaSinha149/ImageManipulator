@@ -70,6 +70,7 @@ void greenScreenImage::applyGreenScreen(Image &screen, Image &img, std::string n
     for (size_t i = 0; i < size; i++)
     {
         int idx = i*screen.getChannel() + 1;
+        std::cout<<"once";
         if(screenStream[idx] > 240)
             res.insert(res.end(), imgStream.begin() + idx - 1, imgStream.begin() + idx + 2);
         else
