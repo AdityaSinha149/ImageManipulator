@@ -18,7 +18,9 @@ GreenScreen.cpp
 
 
         
-
+(ignore) command for windows: x64 native tools command 
+cd C:\Users\ASUS\Desktop\projects\image_project\ImageManipulator
+nvcc driver.cpp image.cpp greenScreen.cpp -allow-unsupported-compiler  -o driver_test_cuda
 
 
 
