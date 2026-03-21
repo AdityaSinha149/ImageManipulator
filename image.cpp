@@ -4,9 +4,9 @@
 #include "stb_image_write.h"
 #include "image.h"
 
-Image::Image(const char* filename)
+Image::Image(const std::string& filename)
 {
-        rgbstream.emplace_back(stbi_load(filename, &width, &height, &channel, 0));
+        rgbstream.emplace_back(stbi_load(filename.c_str(), &width, &height, &channel, 0));
         name = filename;
 }
 
