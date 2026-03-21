@@ -6,40 +6,15 @@
 
 Image::Image(const char* filename)
 {
-        rgbstream = stbi_load(filename, &width, &height, &channel, 0);
+        rgbstream.emplace_back(stbi_load(filename, &width, &height, &channel, 0));
         name = filename;
 }
 
 Image::Image(int w, int h, int c) 
 {
-
         width = w;
         height = h;
         channel = c;
-        rgbstream = nullptr;
-        rstream = nullptr;
-        gstream = nullptr;
-        bstream = nullptr;
-
-}
-
-Image::Image(unsigned char* r, unsigned char* g, unsigned char* b, int w, int h)
-{
-        rstream = r;
-        gstream = g;
-        bstream = b;
-        height = h;
-        width = w;
-
-        rgbstream = new unsigned char [h * w * 3];
-
-        for(int i = 0; i < h * w * 3; i += 3)
-        {
-                rgbstream[i] = r[i/3];
-                rgbstream[i+1] = g[i/3];
-                rgbstream[i+2] = b[i/3];
-        }
-
 }
 
 void Image::Print()
@@ -83,21 +58,21 @@ int Image::getChannel() const
         return channel;
 }
 
-unsigned char* Image::getRStream()
+std::vector<char> Image::getRStream()
 {
         return rstream;
 }
 
-unsigned char* Image::getGStream()
+std::vector<char> Image::getGStream()
 {
         return gstream;
 }
 
-unsigned char* Image::getBStream()
+std::vector<char> Image::getBStream()
 {
         return bstream;
 }
-unsigned char* Image::getStream() const
+std::vector<char> Image::getStream() const
 {
         return rgbstream;
 }

@@ -12,5 +12,5 @@ int main()
         img1.Print();
         img2.Print();
 
-        std::cout<<"Relation: "<<greenScreenImage::checkSizes(img1, img2)<<std::endl;
+        greenScreenImage::applyGreenScreen(img1, img2, "pls_work.jpg");
 }
