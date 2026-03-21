@@ -43,8 +43,8 @@ void greenScreenImage::resizeBigToSmall(Image &big, const Image &small)
 {
     Image tmp{small.getWidth(), small.getHeight(), big.getChannel()};
     stbir_pixel_layout layout = (big.getChannel() == 4) ? STBIR_RGBA : STBIR_RGB;
-    stbir_resize_uint8_linear(big.getStream().data(), big.getWidth(), big.getHeight(), big.getWidth()*big.getChannel(),
-                                tmp.getStream().data(), small.getWidth(), small.getHeight(), small.getWidth()*small.getChannel(),
+    stbir_resize_uint8_linear(big.getRGBStream().data(), big.getWidth(), big.getHeight(), big.getWidth()*big.getChannel(),
+                                tmp.getRGBStream().data(), small.getWidth(), small.getHeight(), small.getWidth()*small.getChannel(),
                                 layout);
     big = tmp;
 }
@@ -57,8 +57,8 @@ void greenScreenImage::applyGreenScreen(Image &screen, Image &img, std::string n
     else if(check == 1) resizeBigToSmall(screen, img);
     else if(check == 2) resizeBigToSmall(img, screen);
     
-    std::vector<unsigned char> screenStream = screen.getStream();
-    std::vector<unsigned char> imgStream = img.getStream();
+    std::vector<unsigned char> screenStream = screen.getRGBStream();
+    std::vector<unsigned char> imgStream = img.getRGBStream();
 
 
     int size = screen.getWidth()*screen.getHeight();
