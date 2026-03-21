@@ -66,7 +66,7 @@ void greenScreenImage::applyGreenScreen(Image &screen, Image &img, std::string n
     int size = screen.getWidth()*screen.getHeight();
     std::vector<unsigned char> res;
 
-    std::cout<<"for/n";
+    std::cout<<"for\n";
     for (size_t i = 0; i < size; i++)
     {
         int idx = i*screen.getChannel() + 1;
