@@ -5,19 +5,14 @@
 
 bool greenScreenImage::checkAspectRatio(const Image &img1, const Image &img2)
 {
-
-        std::cout<<"Working in checkaspectRatio\n";
     if (img1.getHeight() * img2.getWidth() == img2.getHeight() * img1.getWidth())
     {
-            std::cout<<"Sent True\n";
         return true;
     }
     else
     {
-            std::cout<<"Sent False\n";
         return false;
     }
-        
 }
 
 int greenScreenImage::checkSizes(const Image &img1, const Image &img2)
@@ -25,24 +20,20 @@ int greenScreenImage::checkSizes(const Image &img1, const Image &img2)
 
         if(checkAspectRatio(img1, img2) == false)
         {
-                std::cout<<"Check sizes sent -1\n";
                 return -1;
         }
         else
         {
                 if(img1.getHeight() == img2.getHeight())
                 {
-                        std::cout<<"Check sizes sent 0\n";
                         return 0; // same size
                 }
 
                 if(img1.getHeight() > img2.getHeight())
                 {
-                        std::cout<<"Check sizes sent 1\n";
                         return 1; // img1 is bigger
                 }
 
-                std::cout<<"Check sizes sent 2\n";
                 return 2; // img2 is bigger
         }
 
@@ -66,6 +57,13 @@ void greenScreenImage::applyGreenScreen(Image &screen, Image &img, std::string n
     if(check == -1) return;
     else if(check == 1) resizeBigToSmall(screen, img);
     else if(check == 2) resizeBigToSmall(img, screen);
+
+    // Only handle 3-channel RGB; bail if either image has a different stride.
+    if (screen.getChannel() != 3 || img.getChannel() != 3)
+    {
+        std::cerr << "Unsupported channel count; expected 3-channel RGB." << std::endl;
+        return;
+    }
     
     std::cout<<"converted\n";
     std::vector<unsigned char> screenStream = screen.getRGBStream();
@@ -81,18 +79,22 @@ void greenScreenImage::applyGreenScreen(Image &screen, Image &img, std::string n
    
     for (size_t i = 0; i < size * 3; i += 3)
     {
+        int r = static_cast<int>(screenStream[i]);
+        int g = static_cast<int>(screenStream[i + 1]);
+        int b = static_cast<int>(screenStream[i + 2]);
 
-        if(screenStream[i + 1] > 240)
+        // Treat as green only when green is both bright and dominant over red/blue.
+        if (g > 165 && g > r + 40 && g > b + 40)
         {
-                res[i] = imgStream[i];
-                res[i+1] = imgStream[i+1];
-                res[i+2] = imgStream[i+2];
+            res[i] = imgStream[i];
+            res[i + 1] = imgStream[i + 1];
+            res[i + 2] = imgStream[i + 2];
         }
         else
         {
-                res[i] = screenStream[i];
-                res[i+1] = screenStream[i+1];
-                res[i+2] = screenStream[i+2];
+            res[i] = screenStream[i];
+            res[i + 1] = screenStream[i + 1];
+            res[i + 2] = screenStream[i + 2];
         }
 
     }
