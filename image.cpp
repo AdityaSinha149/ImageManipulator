@@ -45,9 +45,6 @@ Image& Image::operator=(const Image& img)
         width = img.width;
         channel = img.channel;
         rgbstream = img.rgbstream;
-        rstream = img.rstream;
-        gstream = img.gstream;
-        bstream = img.bstream;
         name = img.name;
         return *this;
 }
@@ -76,6 +73,6 @@ std::vector<unsigned char> Image::getRGBStream() const
 
 void Image::Load(const std::string& filename)
 {
-        stbi_write_jpg(filename.c_str(), width, height, channel, rgbstream, 50);
+        stbi_write_jpg(filename.c_str(), width, height, channel, rgbstream.data(), 50);
 }
 
