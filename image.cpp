@@ -18,6 +18,7 @@ Image::Image(int w, int h, int c)
         width = w;
         height = h;
         channel = c;
+        rgbstream.reserve(h * w * c);
 }
 
 Image::Image(const std::vector<unsigned char> rgb, int w, int h)
