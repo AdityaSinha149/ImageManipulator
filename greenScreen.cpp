@@ -2,7 +2,7 @@
 #define STB_IMAGE_RESIZE_IMPLEMENTATION
 #include "lib/stb_image_resize2.h"
 #include <memory>
-
+#include <chrono>
 bool greenScreenImage::checkAspectRatio(const Image &img1, const Image &img2)
 {
     if (img1.getHeight() * img2.getWidth() == img2.getHeight() * img1.getWidth())
@@ -63,6 +63,7 @@ void greenScreenImage::applyGreenScreen(Image &screen, Image &img, std::string n
     int size = screen.getWidth()*screen.getHeight();
     std::vector<unsigned char> res (size * 3);
 
+    auto start = std::chrono::high_resolution_clock::now();
    
     for (size_t i = 0; i < static_cast<size_t>( size * 3 ); i += 3)
     {
@@ -85,7 +86,12 @@ void greenScreenImage::applyGreenScreen(Image &screen, Image &img, std::string n
         }
 
     }
+        
+        auto end = std::chrono::high_resolution_clock::now();
 
+        std::chrono::duration<double> elapsed = end - start;
+
+        std::cout<<"Execution time: "<<elapsed.count()<<std::endl;
     
     Image resImage{res, screen.getWidth(), screen.getHeight()};
 
